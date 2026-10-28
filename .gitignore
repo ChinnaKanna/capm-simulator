@@ -1,0 +1,24 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+	CHANGELOG.md
+	CONTRIBUTING.md
+	LICENSE
+	README.md
+	css/
+	favicon.ico
+	icons/
+	index.html
+	js/
+	manifest.json
+	service-worker.js
