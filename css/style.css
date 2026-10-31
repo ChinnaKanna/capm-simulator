@@ -146,6 +146,7 @@ button{font-family:inherit}
 .db-d1{background:var(--d1-bg);color:var(--d1)}.db-d2{background:var(--d2-bg);color:var(--d2)}.db-d3{background:var(--d3-bg);color:var(--d3)}.db-d4{background:var(--d4-bg);color:var(--d4)}
 .q-card{background:var(--card);border-radius:var(--radius);padding:1.75rem;box-shadow:var(--shadow);margin-bottom:.875rem;border:1.5px solid var(--border)}
 .q-text{font-size:1rem;font-weight:600;line-height:1.75;color:var(--tx1);margin-bottom:1.5rem}
+.q-img{display:block;max-width:100%;height:auto;margin:0 0 1.25rem;border:1.5px solid var(--border);border-radius:10px;background:#fff}
 .opts{display:flex;flex-direction:column;gap:.55rem}
 .opt-btn{display:flex;align-items:center;gap:.8rem;padding:.85rem 1rem;border:2px solid var(--border);border-radius:11px;background:#FAFBFF;cursor:pointer;text-align:left;transition:border-color .15s,background .15s;font-size:.9rem;color:var(--tx1);line-height:1.55;width:100%;font-family:inherit}
 .opt-btn:hover:not(:disabled){border-color:var(--primary);background:var(--primary-light)}

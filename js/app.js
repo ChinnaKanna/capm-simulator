@@ -84,7 +84,7 @@ let activeMode = 'exam';
 let selectedStudyDomain = 'all';
 
 /** Total questions in each study domain selection. */
-const STUDY_COUNTS = { all: 524, d1: 184, d2: 93, d3: 106, d4: 141 };
+const STUDY_COUNTS = { all: 644, d1: 253, d2: 126, d3: 118, d4: 147 };
 
 /**
  * Active session object.  Null when no session is in progress.
@@ -401,6 +401,13 @@ function render() {
   badge.textContent     = `${q.domain.replace('d', 'Domain ')} · ${DOMAINS[q.domain].name}`;
   badge.className       = `d-badge ${DOMAIN_COLORS[q.domain]}`;
   badge.style.visibility = showDomain ? 'visible' : 'hidden';
+
+  // ── Optional question image (diagram/chart referenced by the question) ──
+  const qImg = $id('q-img');
+  if (qImg) {
+    if (q.img) { qImg.src = q.img; qImg.classList.remove('hidden'); }
+    else       { qImg.removeAttribute('src'); qImg.classList.add('hidden'); }
+  }
 
   // ── Question text ─────────────────────────────────────────────
   $id('q-text').textContent = q.q;
