@@ -83,8 +83,29 @@ let activeMode = 'exam';
 /** Domain selected in Study Mode ('all' | 'd1' | 'd2' | 'd3' | 'd4'). */
 let selectedStudyDomain = 'all';
 
-/** Total questions in each study domain selection. */
-const STUDY_COUNTS = { all: 644, d1: 253, d2: 126, d3: 118, d4: 147 };
+/** Total questions in each study domain selection — derived from QB. */
+const STUDY_COUNTS = (() => {
+  const counts = { all: 0 };
+  DOMAIN_KEYS.forEach(dk => {
+    counts[dk] = QB[dk].length;
+    counts.all += counts[dk];
+  });
+  return counts;
+})();
+
+/** Write the live question counts into every start-screen stat/pill. */
+function syncCountDisplays() {
+  const bank = $id('stat-bank-count');
+  if (bank) bank.textContent = `${STUDY_COUNTS.all}+`;
+
+  const study = $id('stat-study-count');
+  if (study) study.textContent = STUDY_COUNTS[selectedStudyDomain];
+
+  document.querySelectorAll('.sd-btn').forEach(btn => {
+    const el = btn.querySelector('.sd-count');
+    if (el) el.textContent = `${STUDY_COUNTS[btn.dataset.domain]} Q`;
+  });
+}
 
 /**
  * Active session object.  Null when no session is in progress.
@@ -791,3 +812,9 @@ function retake() {
   $id('retake-btn').textContent = S && S.isStudy ? '↩ Start a New Study Session' : '↩ Take a New Exam';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+/* ─────────────────────────────────────────────────────────────
+   § 15  INIT — reflect the live question-bank size on the start screen
+   ───────────────────────────────────────────────────────────── */
+
+syncCountDisplays();

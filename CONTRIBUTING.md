@@ -25,7 +25,7 @@ All questions live in `js/questions.js`, inside a JavaScript constant called `QB
 A few things to keep in mind:
 
 - **Domain weighting in Exam Mode.** The four domains are drawn from in fixed proportions (36/17/20/27%) for every exam length, defined in the `EXAM_LENGTHS` config in `js/app.js`. If you add a large batch of questions to one domain, the bank stays balanced as long as you don't drastically change the *relative* sizes between domains. Study Mode draws *all* questions from the selected domain, so additions there are reflected immediately.
-- **Update `STUDY_COUNTS` if you add questions.** The `STUDY_COUNTS` constant in `js/app.js` holds the hardcoded per-domain question counts shown on the start screen (e.g. `{ all: 524, d1: 184, … }`). If you add or remove questions, update this constant to match — otherwise the stat shown on the start screen will be wrong. The actual session will always be correct (it draws from `QB` directly), only the display stat is affected.
+- **Question counts on the start screen are automatic.** `STUDY_COUNTS` in `js/app.js` is derived from `QB` at load time, and `syncCountDisplays()` writes those numbers into the "Question Bank" stat, the study stat, and each domain pill. Adding or removing questions in `js/questions.js` is enough — no count needs to be updated by hand. If you add a new stat/pill that shows a count, hook it into `syncCountDisplays()`.
 - **Rationale sentences should be genuinely separate sentences**, ending in `.`, `!`, or `?`, since the app's `splitRationale()` function uses sentence boundaries to build the bullet list. It already protects common abbreviations (`e.g.`, `i.e.`, `etc.`, `vs.`) and decimal numbers (`0.88`, `1.0`) from being mistaken for sentence endings, but unusual abbreviations not in that list could still get split incorrectly — keep an eye on how new rationales render.
 - **No HTML in question/option/rationale text.** It's inserted as plain text (escaped where needed) — write it as plain prose.
 - **Original content only.** Don't copy questions or explanations from PMI's official materials, prep courses, or other copyrighted sources — write original questions that test the same concept.
@@ -34,7 +34,7 @@ A few things to keep in mind:
 
 There's no build step. The codebase is split into three purposeful files — edit whichever one you need and refresh the browser:
 
-- **Adding or editing questions** → edit `js/questions.js` (and update `STUDY_COUNTS` in `js/app.js` if the totals change)
+- **Adding or editing questions** → edit `js/questions.js` (the start-screen counts update themselves from `QB`)
 - **Changing exam or study mode behaviour** → edit `js/app.js`
 - **Changing the question navigator** → the three relevant functions in `js/app.js` are `toggleQNav()`, `updateQNavGrid()`, and `jumpTo(idx)`, all in § 10 of the file
 - **Changing styles** → edit `css/style.css`

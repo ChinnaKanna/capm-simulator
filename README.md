@@ -1,6 +1,6 @@
 # CAPM® Practice Exam Simulator
 
-A free, offline-capable, installable practice exam simulator for the PMI **Certified Associate in Project Management (CAPM)®** certification. 524 original practice questions across all four ECO domains, two modes (timed Practice Exam and self-paced Study Mode with domain-wise browsing), instant feedback with bulleted rationales, and domain-level performance breakdowns.
+A free, offline-capable, installable practice exam simulator for the PMI **Certified Associate in Project Management (CAPM)®** certification. 644 original practice questions across all four ECO domains, two modes (timed Practice Exam and self-paced Study Mode with domain-wise browsing), instant feedback with bulleted rationales, and domain-level performance breakdowns.
 
 No build step, no backend, no external dependencies. Open `index.html` in a browser and it works — or host the folder anywhere with HTTPS to get the installable PWA experience.
 
@@ -11,7 +11,7 @@ No build step, no backend, no external dependencies. Open `index.html` in a brow
 ### 📝 Practice Exam Mode
 Timed, exam-style sessions drawn from the full question bank in ECO-weighted proportions.
 
-- **524-question bank** split across all four CAPM ECO domains, weighted to match PMI's official percentages (Domain 1: 36%, Domain 2: 17%, Domain 3: 20%, Domain 4: 27%).
+- **644-question bank** split across all four CAPM ECO domains, weighted to match PMI's official percentages (Domain 1: 36%, Domain 2: 17%, Domain 3: 20%, Domain 4: 27%).
 - **Five exam lengths** — 30, 60, 90, 120, or 150 questions — each drawing from the bank in the correct domain proportions.
 - **Adaptive countdown timer**, scaled off PMI's real 3-hour allowance for the 150-question exam (1.2 min/question). Turns red and pulses in the final 5 minutes; auto-submits for scoring if time runs out.
 - **Timer pauses on answer** — the countdown freezes the moment you select an option so you can read the rationale without pressure; resumes when you click Next Question.
@@ -22,7 +22,7 @@ Timed, exam-style sessions drawn from the full question bank in ECO-weighted pro
 ### 📚 Study Mode
 Self-paced, timer-free browsing of the complete question bank by domain.
 
-- **Domain selector** — study All Domains (524 questions) or focus on a single domain: D1 PM Fundamentals (184Q), D2 Predictive Methodologies (93Q), D3 Agile Frameworks (106Q), or D4 Business Analysis (141Q).
+- **Domain selector** — study All Domains (644 questions) or focus on a single domain: D1 PM Fundamentals (253Q), D2 Predictive Methodologies (126Q), D3 Agile Frameworks (118Q), or D4 Business Analysis (147Q).
 - **No timer** — work through questions at your own pace without any countdown pressure.
 - **Permanent navigation buttons** — Previous and Next are always visible, not just after answering. Click Next to skip a question without answering; click it again later to come back. Unanswered questions are simply not counted toward the score.
 - **Free backward navigation** — jump back to any question you've already answered to re-read the rationale. The answered state (correct/wrong highlighting, feedback banner, rationale bullets) is fully restored. Answers are locked on revisit — the score is always based on your first attempt.
@@ -34,7 +34,7 @@ Self-paced, timer-free browsing of the complete question bank by domain.
 - **Instant per-question feedback** with the rationale broken into readable bullet points.
 - **Domain-level results breakdown** with Above / On / Below Target status and targeted study recommendations for weak areas.
 - **Installable as a real app** on Android, iOS, Windows, macOS, and Linux via the Web App Manifest + Service Worker (see below).
-- **Works fully offline** once loaded — the service worker caches all 524 questions and the complete app shell.
+- **Works fully offline** once loaded — the service worker caches all 644 questions and the complete app shell.
 
 ## Install as an App
 
@@ -97,7 +97,7 @@ python3 -m http.server 8000
 ├── css/
 │   └── style.css           # All styles
 ├── js/
-│   ├── questions.js        # Question bank — QB constant with all 524 questions
+│   ├── questions.js        # Question bank — QB constant with all 644 questions
 │   └── app.js              # All application logic (config, timer, exam mode, study mode, navigator, results)
 ├── manifest.json           # Web App Manifest (name, icons, display mode)
 ├── service-worker.js       # Caches the app shell for offline use
@@ -134,7 +134,7 @@ Plain HTML, CSS, and vanilla JavaScript — no frameworks, no bundler, no `npm i
 
 In the interest of being upfront about it: this app was built almost entirely by **Claude** (Anthropic's AI assistant), working interactively with the repo owner over a series of conversations.
 
-Claude wrote all of the HTML/CSS/JavaScript, authored the full 524-question bank with explanations (rationales) for each answer, designed and generated the app icon set, and implemented every feature in this README — the exam-length/timer system, Study Mode with domain-wise browsing and free backward navigation, timer-pause-on-answer, answer-option shuffling, domain label toggle, quit-and-partial-scoring logic, the bulleted rationale formatting, the PWA conversion (manifest, service worker, icons), and the codebase refactor that split the monolithic `index.html` into separate `css/`, `js/`, and `index.html` files. Topic-coverage audits and duplicate-detection passes across the full question bank were also Claude's work.
+Claude wrote all of the HTML/CSS/JavaScript, authored the full 644-question bank with explanations (rationales) for each answer, designed and generated the app icon set, and implemented every feature in this README — the exam-length/timer system, Study Mode with domain-wise browsing and free backward navigation, timer-pause-on-answer, answer-option shuffling, domain label toggle, quit-and-partial-scoring logic, the bulleted rationale formatting, the PWA conversion (manifest, service worker, icons), and the codebase refactor that split the monolithic `index.html` into separate `css/`, `js/`, and `index.html` files. Topic-coverage audits and duplicate-detection passes across the full question bank were also Claude's work.
 
 The repo owner directed the entire process: defining what the app should do, specifying the exam logic (domain weighting, timer duration based on the real PMI exam allowance), testing the live app, and catching real UI bugs along the way — including screenshots of a misaligned answer-feedback panel and a study-recommendations section where the layout broke, both of which led directly to the CSS fixes now in this codebase. The decision to build this at all, and every product decision in it, came from the repo owner; Claude was the one typing the code.
 

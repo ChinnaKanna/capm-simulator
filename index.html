@@ -8,7 +8,7 @@
   <!-- ── PWA: manifest + theme ─────────────────────────────────── -->
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4338CA">
-  <meta name="description" content="Free offline-capable CAPM practice exam — 524 questions across all four ECO domains, timed exams, domain breakdowns, and expert rationales.">
+  <meta name="description" content="Free offline-capable CAPM practice exam — 644 questions across all four ECO domains, timed exams, domain breakdowns, and expert rationales.">
 
   <!-- ── Favicons ───────────────────────────────────────────────── -->
   <link rel="icon"             type="image/x-icon" href="favicon.ico">
@@ -68,7 +68,7 @@
       <div class="s-stats">
         <div class="s-stat"><span class="sn" id="stat-q-count">30</span><span class="sl">Questions</span></div>
         <div class="s-stat"><span class="sn" id="stat-time">36 min</span><span class="sl">Time Limit</span></div>
-        <div class="s-stat"><span class="sn">524+</span><span class="sl">Question Bank</span></div>
+        <div class="s-stat"><span class="sn" id="stat-bank-count">644+</span><span class="sl">Question Bank</span></div>
       </div>
       <button class="s-btn" onclick="startExam()">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
@@ -82,27 +82,27 @@
       <div class="sd-opts">
         <button class="sd-btn active" data-domain="all" onclick="selectStudyDomain('all')">
           <span class="sd-info"><span class="sd-name">All Domains</span><span class="sd-desc">Complete question bank</span></span>
-          <span class="sd-count">524 Q</span>
+          <span class="sd-count">644 Q</span>
         </button>
         <button class="sd-btn" data-domain="d1" onclick="selectStudyDomain('d1')">
           <span class="sd-info"><span class="sd-name">Domain 1</span><span class="sd-desc">PM Fundamentals &amp; Core Concepts</span></span>
-          <span class="sd-count">184 Q</span>
+          <span class="sd-count">253 Q</span>
         </button>
         <button class="sd-btn" data-domain="d2" onclick="selectStudyDomain('d2')">
           <span class="sd-info"><span class="sd-name">Domain 2</span><span class="sd-desc">Predictive, Plan-Based Methodologies</span></span>
-          <span class="sd-count">93 Q</span>
+          <span class="sd-count">126 Q</span>
         </button>
         <button class="sd-btn" data-domain="d3" onclick="selectStudyDomain('d3')">
           <span class="sd-info"><span class="sd-name">Domain 3</span><span class="sd-desc">Agile Frameworks/Methodologies</span></span>
-          <span class="sd-count">106 Q</span>
+          <span class="sd-count">118 Q</span>
         </button>
         <button class="sd-btn" data-domain="d4" onclick="selectStudyDomain('d4')">
           <span class="sd-info"><span class="sd-name">Domain 4</span><span class="sd-desc">Business Analysis Frameworks</span></span>
-          <span class="sd-count">141 Q</span>
+          <span class="sd-count">147 Q</span>
         </button>
       </div>
       <div class="s-stats">
-        <div class="s-stat"><span class="sn" id="stat-study-count">524</span><span class="sl">Questions</span></div>
+        <div class="s-stat"><span class="sn" id="stat-study-count">644</span><span class="sl">Questions</span></div>
         <div class="s-stat"><span class="sn">No Timer</span><span class="sl">Self-Paced</span></div>
         <div class="s-stat"><span class="sn">Free Nav</span><span class="sl">Go Back &amp; Review</span></div>
       </div>
@@ -121,7 +121,7 @@
     <div class="q-header-in">
       <div class="q-logo">CAPM<em>® Simulator</em></div>
       <div class="q-center"><div class="q-num" id="q-num">Question 1 of 30</div></div>
-      <button class="qnav-toggle hidden" id="qnav-toggle" onclick="toggleQNav()" title="Jump to any question">☰ <span id="qnav-label">1/524</span></button>
+      <button class="qnav-toggle hidden" id="qnav-toggle" onclick="toggleQNav()" title="Jump to any question">☰ <span id="qnav-label">1/644</span></button>
       <div class="q-timer" id="timer-disp">⏱ 36:00</div>
       <div class="q-score">⭐ <span id="score-disp">0 / 0</span></div>
       <button class="domain-toggle active" id="domain-toggle-btn" onclick="toggleDomain()" aria-label="Toggle domain label" title="Show/hide domain">🏷 <span>Domain</span></button>

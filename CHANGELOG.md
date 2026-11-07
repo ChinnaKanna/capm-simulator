@@ -2,6 +2,17 @@
 
 All notable changes to this project are documented here.
 
+## [2.2.1] — 2026-11-07
+
+### Fixed — Start-screen question counts were stale
+
+The "Question Bank" stat, the Study Mode stat, and the per-domain pill counts were hardcoded in `index.html` (524 / 184 / 93 / 106 / 141) and only the study stat was refreshed from `STUDY_COUNTS` after a domain click — so the default view never reflected the enlarged bank (644 questions after the last batch).
+
+- **`js/app.js`** — `STUDY_COUNTS` is now derived from `QB` at load time, and a new `syncCountDisplays()` writes the live totals into `#stat-bank-count`, `#stat-study-count`, and every `.sd-count` pill.
+- **`index.html`** — stale hardcoded counts replaced with current values as no-JS fallbacks; the "Question Bank" stat got the `stat-bank-count` id.
+- **`service-worker.js`** — `CACHE_VERSION` bumped to `v3` so returning users are served the updated shell instead of the cache-first copy.
+- **`README.md` / `manifest.json` / `CONTRIBUTING.md`** — counts updated; the "update `STUDY_COUNTS` by hand" contribution step is no longer needed.
+
 ## [2.2.0] — 2026-06-23
 
 ### Added — Question Navigator and Persistent Navigation (Study Mode)
